@@ -1,0 +1,19 @@
+.Product {
+  outline: 1px solid #212121;
+}
+
+.Product-name {
+  font-weight: 500;
+}
+
+.Product-quantity {
+  font-weight: 500;
+}
+
+.Product-quantity.available {
+  color: green;
+}
+
+.Product-quantity.not-available {
+  color: red;
+}

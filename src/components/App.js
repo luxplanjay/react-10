@@ -6,12 +6,14 @@ import favouriteBooks from '../books.json';
 
 export default function App() {
   return (
-    <>
-      <BookList books={favouriteBooks} />
+    <div>
       <h1>Welcome!</h1>
+
+      <BookList books={favouriteBooks} />
+
       <Section>
         <Product
-          // imgUrl="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
+          imgUrl="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
           name="Tacos With Lime"
           price={10.99}
           quantity={30}
@@ -26,6 +28,6 @@ export default function App() {
           quantity={100}
         />
       </Section>
-    </>
+    </div>
   );
 }

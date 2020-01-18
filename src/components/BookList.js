@@ -1,13 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const List = styled.ul`
+  padding: 0;
+  margin: 0;
+  outline: 1px solid red;
+`;
+
+const ListItem = styled.li`
+  background-color: teal;
+  color: #fff;
+  margin-bottom: 8px;
+
+  &:hover {
+    background-color: palevioletred;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`;
 
 function BookList({ books }) {
   return (
-    <ul>
+    <List>
       {books.map(book => (
-        <li key={book.id}>{book.name}</li>
+        <ListItem key={book.id}>{book.name}</ListItem>
       ))}
-    </ul>
+    </List>
   );
 }
 
