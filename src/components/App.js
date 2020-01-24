@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Layout from './Layout';
-// import Counter from './Counter';
 import TaskList from './TaskList';
 import TaskEditor from './TaskEditor';
 import createTask from '../utils/create-task';
