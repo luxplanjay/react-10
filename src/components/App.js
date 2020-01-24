@@ -1,33 +1,45 @@
-import React from 'react';
-import Product from './Product';
-import Section from './Section';
-import BookList from './BookList';
-import favouriteBooks from '../books.json';
+import React, { Component } from 'react';
+import Layout from './Layout';
+// import Counter from './Counter';
+import TaskList from './TaskList';
+import TaskEditor from './TaskEditor';
+import createTask from '../utils/create-task';
+import Counter from './Counter';
 
-export default function App() {
-  return (
-    <div>
-      <h1>Welcome!</h1>
+export default class App extends Component {
+  state = {
+    tasks: [],
+  };
 
-      <BookList books={favouriteBooks} />
+  addTask = () => {
+    const task = createTask();
 
-      <Section>
-        <Product
-          imgUrl="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?dpr=2&h=480&w=640"
-          name="Tacos With Lime"
-          price={10.99}
-          quantity={30}
-        />
-      </Section>
+    this.setState(prevState => {
+      return {
+        tasks: [...prevState.tasks, task],
+      };
+    });
+  };
 
-      <Section title="Recommended">
-        <Product
-          imgUrl="https://images.pexels.com/photos/70497/pexels-photo-70497.jpeg?dpr=2&h=480&w=640"
-          name="Fries and Burger"
-          price={30.49}
-          quantity={100}
-        />
-      </Section>
-    </div>
-  );
+  removeTask = taskId => {
+    this.setState(prevState => {
+      return {
+        tasks: prevState.tasks.filter(({ id }) => id !== taskId),
+      };
+    });
+  };
+
+  render() {
+    const { tasks } = this.state;
+
+    return (
+      <Layout>
+        <Counter />
+        <TaskEditor onAddTask={this.addTask} />
+        {tasks.length > 0 && (
+          <TaskList tasks={tasks} onRemoveTask={this.removeTask} />
+        )}
+      </Layout>
+    );
+  }
 }

@@ -1,14 +1,11 @@
 # react-10
 
-- Веб-приложения. MPA и SPA
-- Концепция Virtual DOM
-- create-react-app
-- Пакеты react и react-dom
-- React-элементы и React.createElement()
-- JSX как шаблонизатор. Выражения в JSX. Рендер по условию.
-- Компоненты-функции
-- Передача данных через Props, свойство defaultProps
-- Инструменты разработчика - React DevTools
-- Основы композиции компонентов, потомки (props.children)
-- Пакет prop-types, свойство propTypes
-- Работа с коллекциями, ключи
+- Компоненты-классы
+- События: SyntheticEvent object, Inline callbacks, custom methods
+- Привязка контекста: inline bind, constructor bind, public class fields
+- Внутреннее состояние компонента. Начальное состояние от props
+- Изменение состояния с setState(update, callback)
+- Асинхронность обновления состояния
+- Изменение состояния от предыдущего - setState(updaterFn, callback)
+- Подъем состояния (state hoisting, lifting state up)
+- Коллекция заметок: создание и удаление
