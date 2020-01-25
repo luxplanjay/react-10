@@ -32,3 +32,7 @@ button {
   cursor: pointer;
   font-family: inherit;
 }
+
+label {
+  cursor: pointer;
+}

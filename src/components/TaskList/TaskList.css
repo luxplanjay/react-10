@@ -15,8 +15,12 @@
   margin-top: 12px;
 }
 
+.TaskList-item.completed {
+  background-color: green;
+}
+
 .TaskList-text {
-  flex: 0 0 85%;
+  flex: 0 0 65%;
   margin-top: 0;
   margin-bottom: 0;
   margin-right: 16px;
@@ -26,7 +30,7 @@
 .TaskList-actions {
   display: flex;
   justify-content: center;
-  flex-grow: 1;
+  /* flex-grow: 1; */
 }
 
 .TaskList-button {
