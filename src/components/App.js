@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Layout from './Layout';
 import Spinner from './Spinner';
 import Notification from './Notification';
 import ArticleList from './ArticleList';
@@ -53,7 +54,7 @@ export default class App extends Component {
     const { articles, loading, error } = this.state;
 
     return (
-      <>
+      <Layout>
         <SearchForm onSubmit={this.handleSearchFormSubmit} />
 
         {error && (
@@ -63,14 +64,14 @@ export default class App extends Component {
         )}
 
         {articles.length > 0 && <ArticleList articles={articles} />}
-        {loading && <Spinner message="Loading..." />}
+        {loading && <Spinner />}
 
         {articles.length > 0 && !loading && (
           <button type="button" onClick={this.fetchArticles}>
             Load more
           </button>
         )}
-      </>
+      </Layout>
     );
   }
 }
