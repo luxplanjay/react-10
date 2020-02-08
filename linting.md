@@ -102,6 +102,8 @@ git-репозиторий, если его еще нет. {% endhint %}
 {
   "files.autoSave": "onFocusChange",
   "editor.formatOnSave": true,
-  "eslint.autoFixOnSave": true
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
 ```
