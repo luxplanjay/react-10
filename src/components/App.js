@@ -1,75 +1,42 @@
 import React, { Component } from 'react';
 import Layout from './Layout';
-import Spinner from './Spinner';
-import Notification from './Notification';
-import ArticleList from './ArticleList';
-import SearchForm from './SearchForm';
-import articlesApi from '../services/articlesApi';
+import Modal from './Modal';
+import Player from './Player';
 
 export default class App extends Component {
   state = {
-    articles: [],
-    loading: false,
-    error: null,
-    searchQuery: '',
-    page: 0,
-    largeImageUrl: null,
+    showModal: false,
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    const prevQuery = prevState.searchQuery;
-    const nextQuery = this.state.searchQuery;
-
-    if (prevQuery !== nextQuery) {
-      this.fetchArticles();
-    }
-  }
-
-  fetchArticles = () => {
-    const { searchQuery, page } = this.state;
-
-    this.setState({ loading: true });
-
-    articlesApi
-      .fetchArticlesWithQuery(searchQuery, page)
-      .then(articles =>
-        this.setState(prevState => ({
-          articles: [...prevState.articles, ...articles],
-          page: prevState.page + 1,
-        })),
-      )
-      .catch(error => this.setState({ error }))
-      .finally(() => this.setState({ loading: false }));
-  };
-
-  handleSearchFormSubmit = query => {
-    this.setState({
-      searchQuery: query,
-      page: 0,
-      articles: [],
-    });
+  toggleModal = () => {
+    this.setState(state => ({ showModal: !state.showModal }));
   };
 
   render() {
-    const { articles, loading, error } = this.state;
+    const { showModal } = this.state;
 
     return (
       <Layout>
-        <SearchForm onSubmit={this.handleSearchFormSubmit} />
+        <Player source="http://techslides.com/demos/sample-videos/small.mp4" />
 
-        {error && (
-          <Notification
-            message={`Whoops, something went wrong: ${error.message}`}
-          />
-        )}
-
-        {articles.length > 0 && <ArticleList articles={articles} />}
-        {loading && <Spinner />}
-
-        {articles.length > 0 && !loading && (
-          <button type="button" onClick={this.fetchArticles}>
-            Load more
-          </button>
+        <button type="button" onClick={this.toggleModal}>
+          Open modal
+        </button>
+        {showModal && (
+          <Modal onClose={this.toggleModal}>
+            <h2>Modal title</h2>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae
+              aliquam, similique asperiores voluptates eos expedita modi
+              pariatur ipsa necessitatibus fuga harum! Animi, facilis reiciendis
+              nesciunt alias quo unde tempora. Natus eum delectus porro placeat,
+              praesentium, harum maiores sunt explicabo quidem, excepturi nam
+              repellendus officiis distinctio minima enim magnam et accusamus.
+            </p>
+            <button type="button" onClick={this.toggleModal}>
+              Close modal
+            </button>
+          </Modal>
         )}
       </Layout>
     );
