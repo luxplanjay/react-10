@@ -63,8 +63,8 @@ git-репозиторий, если его еще нет. {% endhint %}
 
 ```json
 {
-  "src/**/*.{json,css,scss,md}": ["prettier --write", "git add"],
-  "src/**/*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write", "git add"]
+  "src/**/*.{json,css,scss,md}": ["prettier --write"],
+  "src/**/*.{js,jsx,ts,tsx}": ["eslint --fix", "prettier --write"]
 }
 ```
 
