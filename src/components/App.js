@@ -1,44 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Navigation from './Navigation';
+import Home from '../views/Home';
+import Shows from '../views/Shows';
+import ShowDetails from '../views/ShowDetails';
+import NotFound from '../views/NotFound';
 import Layout from './Layout';
-import Modal from './Modal';
-import Player from './Player';
+import routes from '../routes';
 
-export default class App extends Component {
-  state = {
-    showModal: false,
-  };
+const App = () => (
+  <Layout>
+    <Navigation />
+    <hr />
 
-  toggleModal = () => {
-    this.setState(state => ({ showModal: !state.showModal }));
-  };
+    <Switch>
+      <Route path={routes.home} exact component={Home} />
+      <Route path={routes.shows} exact component={Shows} />
+      <Route path={routes.showDetails} component={ShowDetails} />
+      <Route component={NotFound} />
+    </Switch>
+  </Layout>
+);
 
-  render() {
-    const { showModal } = this.state;
-
-    return (
-      <Layout>
-        <Player source="http://techslides.com/demos/sample-videos/small.mp4" />
-
-        <button type="button" onClick={this.toggleModal}>
-          Open modal
-        </button>
-        {showModal && (
-          <Modal onClose={this.toggleModal}>
-            <h2>Modal title</h2>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae
-              aliquam, similique asperiores voluptates eos expedita modi
-              pariatur ipsa necessitatibus fuga harum! Animi, facilis reiciendis
-              nesciunt alias quo unde tempora. Natus eum delectus porro placeat,
-              praesentium, harum maiores sunt explicabo quidem, excepturi nam
-              repellendus officiis distinctio minima enim magnam et accusamus.
-            </p>
-            <button type="button" onClick={this.toggleModal}>
-              Close modal
-            </button>
-          </Modal>
-        )}
-      </Layout>
-    );
-  }
-}
+export default App;

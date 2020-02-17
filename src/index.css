@@ -15,3 +15,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.Navigation-link {
+  color: #212121;
+}
+
+.Navigation-link-active {
+  color: palevioletred;
+}
