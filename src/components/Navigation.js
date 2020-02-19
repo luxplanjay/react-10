@@ -6,19 +6,19 @@ const Navigation = () => (
   <ul>
     <li>
       <NavLink
-        exact
-        to={routes.home}
         className="Navigation-link"
         activeClassName="Navigation-link-active"
+        to={routes.home}
+        exact
       >
         Home
       </NavLink>
     </li>
     <li>
       <NavLink
-        to={routes.shows}
         className="Navigation-link"
         activeClassName="Navigation-link-active"
+        to={routes.shows}
       >
         Shows
       </NavLink>

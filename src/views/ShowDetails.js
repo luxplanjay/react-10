@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import tvAPI from '../services/tv-api';
+import routes from '../routes';
 
 export default class ShowDetails extends Component {
   state = { show: null };
@@ -10,9 +11,24 @@ export default class ShowDetails extends Component {
       .then(show => this.setState({ show }));
   }
 
+  handleGoBack = () => {
+    const { state } = this.props.location;
+
+    if (state && state.from) {
+      return this.props.history.push(state.from);
+    }
+
+    this.props.history.push(routes.shows);
+  };
+
   render() {
     return (
-      <div>
+      <>
+        <button type="button" onClick={this.handleGoBack}>
+          Назад к списку шоу
+        </button>
+        <br />
+
         {this.state.show && (
           <>
             <img
@@ -22,7 +38,7 @@ export default class ShowDetails extends Component {
             <h1>{this.state.show.name}</h1>
           </>
         )}
-      </div>
+      </>
     );
   }
 }
