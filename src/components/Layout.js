@@ -12,7 +12,6 @@ const styles = {
 const Layout = ({ children }) => (
   <div style={styles}>
     <Appbar />
-    <hr />
     {children}
   </div>
 );

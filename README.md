@@ -1,5 +1,5 @@
 # Todo
 
-- Причёсываем компоненты
-- Добавляем линк Back на странице одного шоу
-- Работаем с query string
+- Higher-Order Components
+- Render Props
+- React Context API

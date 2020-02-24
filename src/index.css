@@ -23,3 +23,12 @@ code {
 .Navigation-link-active {
   color: palevioletred;
 }
+
+input,
+textarea {
+  font: inherit;
+}
+
+textarea {
+  resize: none;
+}
