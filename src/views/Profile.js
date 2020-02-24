@@ -1,12 +1,13 @@
 import React from 'react';
+import withAuthContext from '../components/hoc/withAuthContext';
 
-const Profile = () => (
+const Profile = ({ auth }) => (
   <>
     <h1>Profile page</h1>
-    <img src="" alt="avatar" />
-    <p>Name: </p>
-    <p>Email: </p>
+    <img src={auth.user.avatar} alt="avatar" />
+    <p>Name: {auth.user.name}</p>
+    <p>Email: {auth.user.email}</p>
   </>
 );
 
-export default Profile;
+export default withAuthContext(Profile);

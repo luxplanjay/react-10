@@ -19,16 +19,26 @@ const styles = {
 };
 
 class CommentForm extends Component {
+  state = {
+    name: (this.props.auth.user && this.props.auth.user.name) || 'Anonymous',
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    const { auth } = this.props;
+
+    if (prevProps.auth.user !== auth.user) {
+      this.setState({
+        name: (auth.user && auth.user.name) || 'Anonymous',
+      });
+    }
+  }
+
   render() {
     return (
       <form style={styles.form}>
         <label style={styles.label}>
           <span style={styles.text}>Name</span>
-          <input
-            type="text"
-            style={styles.input}
-            value={this.props.auth.name}
-          />
+          <input type="text" style={styles.input} value={this.state.name} />
         </label>
 
         <label style={styles.label}>
