@@ -16,14 +16,6 @@ code {
     monospace;
 }
 
-.Navigation-link {
-  color: #212121;
-}
-
-.Navigation-link-active {
-  color: palevioletred;
-}
-
 input,
 textarea {
   font: inherit;
