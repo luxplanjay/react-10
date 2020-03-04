@@ -1,13 +1,10 @@
-import { createStore, combineReducers } from 'redux';
-import timerReducer from './timer/timerReducer';
+import { configureStore } from '@reduxjs/toolkit';
+import tasksReducer from './tasks/tasksReducer';
 
-const rootReducer = combineReducers({
-  timer: timerReducer,
+const store = configureStore({
+  reducer: {
+    tasks: tasksReducer,
+  },
 });
-
-const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
 
 export default store;

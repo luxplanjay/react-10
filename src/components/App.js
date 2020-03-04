@@ -1,14 +1,15 @@
 import React from 'react';
-import Timer from './Timer';
-import StepSelector from './StepSelector';
+import Layout from './Layout';
+import TaskList from './TaskList';
+import TaskEditor from './TaskEditor';
+import Filter from './Filter';
 
-const stepOptions = [5, 10, 15, 20, 25, 30];
-
-const App = () => (
-  <div>
-    <Timer />
-    <StepSelector options={stepOptions} />
-  </div>
-);
-
-export default App;
+export default function App() {
+  return (
+    <Layout>
+      <TaskEditor />
+      <Filter />
+      <TaskList />
+    </Layout>
+  );
+}
