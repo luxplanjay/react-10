@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import tasksActions from '../redux/tasks/tasksActions';
+import tasksOperations from '../redux/tasks/tasksOperations';
 import './TaskEditor.css';
 
 class TaskEditor extends Component {
@@ -44,7 +44,7 @@ class TaskEditor extends Component {
 }
 
 const mapDispatchToProps = {
-  onAddTask: tasksActions.addTask,
+  onAddTask: tasksOperations.addTask,
 };
 
 export default connect(null, mapDispatchToProps)(TaskEditor);

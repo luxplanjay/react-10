@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import tasksActions from '../redux/tasks/tasksActions';
+import tasksOperations from '../redux/tasks/tasksOperations';
 
 const TaskListItem = ({ text, completed, onRemove, onToggleCompleted }) => {
   const clx = ['TaskList-item'];
@@ -40,8 +40,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onRemove: () => dispatch(tasksActions.removeTask(ownProps.id)),
-  onToggleCompleted: () => dispatch(tasksActions.toggleCompleted(ownProps.id)),
+  onRemove: () => dispatch(tasksOperations.removeTask(ownProps.id)),
+  onToggleCompleted: () =>
+    dispatch(tasksOperations.toggleCompleted(ownProps.id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskListItem);
