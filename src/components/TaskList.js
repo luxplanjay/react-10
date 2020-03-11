@@ -1,27 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TaskListItem from './TaskListItem';
+import TaskListItem from './TaskListItemContainer';
 import './TaskList.css';
+import tasksSelectors from '../redux/tasks/tasksSelectors';
 
-const TaskList = ({ tasks }) => (
-  <ul className="TaskList">
-    {tasks.map(({ id }) => (
-      <TaskListItem key={id} id={id} />
-    ))}
-  </ul>
-);
+const TaskList = ({ tasks }) => {
+  console.log('TaskList re-render');
 
-const mapStateToProps = state => {
-  const { items, filter } = state.tasks;
-  const normalizedFilter = filter.toLowerCase();
-
-  const visibleTasks = items.filter(task =>
-    task.text.toLowerCase().includes(normalizedFilter),
+  return (
+    <ul className="TaskList">
+      {tasks.map(({ id }) => (
+        <TaskListItem key={id} id={id} />
+      ))}
+    </ul>
   );
-
-  return {
-    tasks: visibleTasks,
-  };
 };
+
+const mapStateToProps = state => ({
+  tasks: tasksSelectors.getVisibleTasks(state),
+});
 
 export default connect(mapStateToProps)(TaskList);

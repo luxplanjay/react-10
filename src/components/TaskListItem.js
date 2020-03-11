@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import tasksOperations from '../redux/tasks/tasksOperations';
 
 const TaskListItem = ({ text, completed, onRemove, onToggleCompleted }) => {
+  console.log('TaskListItem re-render ' + text);
+
   const clx = ['TaskList-item'];
 
   if (completed) {
@@ -31,18 +31,4 @@ const TaskListItem = ({ text, completed, onRemove, onToggleCompleted }) => {
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  const item = state.tasks.items.find(item => item.id === ownProps.id);
-
-  return {
-    ...item,
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  onRemove: () => dispatch(tasksOperations.removeTask(ownProps.id)),
-  onToggleCompleted: () =>
-    dispatch(tasksOperations.toggleCompleted(ownProps.id)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(TaskListItem);
+export default TaskListItem;
