@@ -1,0 +1,32 @@
+.Card-container {
+  position: relative;
+}
+
+.Card-body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+}
+
+.Card-enter {
+  opacity: 0;
+  transform: scale(0.1);
+}
+
+.Card-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 500ms linear;
+}
+
+.Card-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.Card-exit-active {
+  opacity: 0;
+  transform: scale(0.1);
+  transition: all 500ms linear;
+}

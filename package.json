@@ -13,6 +13,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.1",
+    "react-transition-group": "^4.3.0",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "uuidv4": "^6.0.5"

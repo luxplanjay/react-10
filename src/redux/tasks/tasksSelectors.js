@@ -21,6 +21,7 @@ const getTaskById = createSelector(
 );
 
 export default {
+  getTasks,
   getLoading,
   getFilter,
   getVisibleTasks,

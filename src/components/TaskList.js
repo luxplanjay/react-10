@@ -1,18 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import TaskListItem from './TaskListItemContainer';
 import './TaskList.css';
 import tasksSelectors from '../redux/tasks/tasksSelectors';
 
 const TaskList = ({ tasks }) => {
-  console.log('TaskList re-render');
-
   return (
-    <ul className="TaskList">
+    <TransitionGroup component="ul" className="TaskList">
       {tasks.map(({ id }) => (
-        <TaskListItem key={id} id={id} />
+        <CSSTransition key={id} timeout={250} classNames="TaskList-item-fade">
+          <TaskListItem id={id} />
+        </CSSTransition>
       ))}
-    </ul>
+    </TransitionGroup>
   );
 };
 

@@ -1,0 +1,30 @@
+.Navigation {
+  display: flex;
+  margin-left: auto;
+}
+
+.Navigation-link {
+  padding-left: 12px;
+  padding-right: 12px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #fff;
+}
+
+.Navigation-link:hover {
+  color: #ffeb3b;
+}
+
+.Navigation-link--active {
+  color: #ffeb3b;
+}
+
+.Navigation-link--active::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 3px;
+  margin-top: 4px;
+  background-color: #ffeb3b;
+}

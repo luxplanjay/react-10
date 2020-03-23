@@ -37,3 +37,24 @@
   margin-right: 4px;
   margin-left: 4px;
 }
+
+.TaskList-item-fade-enter {
+  opacity: 0;
+  transform: scale(0.1);
+}
+.TaskList-item-fade-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 250ms linear;
+}
+
+.TaskList-item-fade-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.TaskList-item-fade-exit-active {
+  opacity: 0;
+  transform: scale(0.1);
+  transition: all 250ms linear;
+}

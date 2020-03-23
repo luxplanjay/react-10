@@ -1,0 +1,40 @@
+.Swiper {
+  position: relative;
+  width: 960px;
+  height: 600px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.Swiper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Swiper-controls {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.Swiper-img-enter {
+  transform: translateX(100%);
+}
+
+.Swiper-img-enter-active {
+  transform: translateX(0);
+  transition: transform 250ms linear;
+}
+
+.Swiper-img-exit {
+  transform: translateX(0);
+}
+
+.Swiper-img-exit-active {
+  transform: translateX(-100%);
+  transition: transform 250ms linear;
+}

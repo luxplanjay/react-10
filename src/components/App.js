@@ -1,20 +1,16 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import Layout from './Layout';
-import TaskList from './TaskList';
-import TaskEditor from './TaskEditor';
-import Filter from './Filter';
+import routes from '../routes';
 
-export default function App({ onIncrement, counterValue, isLoadingTasks }) {
-  return (
-    <Layout>
-      <button type="button" onClick={() => onIncrement(5)}>
-        Counter value: {counterValue}
-      </button>
-      <hr />
-      {/* {isLoadingTasks && <h1>LOADING STUFF...</h1>} */}
-      <TaskEditor />
-      <Filter />
-      <TaskList />
-    </Layout>
-  );
-}
+const App = () => (
+  <Layout>
+    <Switch>
+      {routes.map(route => (
+        <Route key={route.path} {...route} />
+      ))}
+    </Switch>
+  </Layout>
+);
+
+export default App;

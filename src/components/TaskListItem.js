@@ -1,8 +1,6 @@
 import React from 'react';
 
 const TaskListItem = ({ text, completed, onRemove, onToggleCompleted }) => {
-  console.log('TaskListItem re-render ' + text);
-
   const clx = ['TaskList-item'];
 
   if (completed) {
