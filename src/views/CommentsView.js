@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, lazy, Suspense } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import Comments from '../components/Comments';
+// import Comments from '../components/Comments';
 import './CommentsView.css';
-// import fadeStyles from './fade.module.css';
+
+const AsyncComments = lazy(() =>
+  import('../components/Comments' /* webpackChunkName: "comments-section" */),
+);
 
 export default class CommentsView extends Component {
   state = {
@@ -22,14 +25,16 @@ export default class CommentsView extends Component {
           {showComments ? 'Hide' : 'Show'} comments
         </button>
 
-        <CSSTransition
-          in={showComments}
-          classNames="fade"
-          timeout={250}
-          unmountOnExit
-        >
-          <Comments />
-        </CSSTransition>
+        <Suspense fallback={<h1>Loading comments...</h1>}>
+          <CSSTransition
+            in={showComments}
+            classNames="fade"
+            timeout={250}
+            unmountOnExit
+          >
+            <AsyncComments />
+          </CSSTransition>
+        </Suspense>
       </>
     );
   }

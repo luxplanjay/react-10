@@ -18,7 +18,7 @@ const AppBar = () => (
           <nav className="AppBar-container">
             <CSSTransition
               in={stage === 'entered'}
-              timeout={1000}
+              timeout={500}
               classNames="AppBar-logo"
               unmountOnExit
             >
@@ -27,7 +27,7 @@ const AppBar = () => (
 
             <CSSTransition
               in={stage === 'entered'}
-              timeout={500}
+              timeout={250}
               classNames="AppBar-nav"
               unmountOnExit
             >
