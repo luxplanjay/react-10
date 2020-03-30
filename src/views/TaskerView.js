@@ -16,7 +16,7 @@ class TaskerView extends Component {
       <>
         <TaskEditor />
         {/* {this.props.isLoadingTasks && <h1>Doing HTTP stuff...</h1>} */}
-        <Filter />
+        {/* <Filter /> */}
         <TaskList />
       </>
     );

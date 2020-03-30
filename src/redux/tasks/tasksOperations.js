@@ -1,13 +1,13 @@
 import axios from 'axios';
 import tasksActions from './tasksActions';
 
-axios.defaults.baseURL = 'http://localhost:2000';
+// axios.defaults.baseURL = 'http://localhost:2000';
 
-const addTask = text => dispatch => {
+const addTask = description => dispatch => {
   dispatch(tasksActions.addTaskRequest());
 
   axios
-    .post('/tasks', { text, completed: false })
+    .post('/tasks', { description })
     .then(({ data }) => dispatch(tasksActions.addTaskSuccess(data)))
     .catch(error => dispatch(tasksActions.addTaskError(error)));
 };

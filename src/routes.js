@@ -2,71 +2,27 @@ import { lazy } from 'react';
 
 export default [
   {
-    path: '/comments',
-    label: 'Comments',
+    path: '/',
+    label: 'Home',
     exact: true,
-    component: lazy(() =>
-      import('./views/CommentsView' /* webpackChunkName: "comments-view" */),
-    ),
+    component: lazy(() => import('./views/HomeView')),
   },
   {
-    path: '/swiper',
-    label: 'Swiper',
+    path: '/register',
+    label: 'Register',
     exact: true,
-    component: lazy(() =>
-      import('./views/SwiperView' /* webpackChunkName: "swiper-view" */),
-    ),
+    component: lazy(() => import('./views/RegisterView')),
   },
   {
-    path: '/tasker',
-    label: 'Tasker',
+    path: '/login',
+    label: 'Login',
     exact: true,
-    component: lazy(() =>
-      import('./views/TaskerView' /* webpackChunkName: "tasker-view" */),
-    ),
+    component: lazy(() => import('./views/LoginView')),
   },
   {
-    path: '/cards',
-    label: 'Cards',
+    path: '/tasks',
+    label: 'Tasks',
     exact: true,
-    component: lazy(() =>
-      import('./views/CardsView' /* webpackChunkName: "cards-view" */),
-    ),
+    component: lazy(() => import('./views/TaskerView')),
   },
 ];
-
-// Свой HOC asyncComponent
-// export default [
-//   {
-//     path: '/comments',
-//     label: 'Comments',
-//     exact: true,
-//     component: asyncComponent(() =>
-//       import('./views/CommentsView' /* webpackChunkName: "comments-view" */),
-//     ),
-//   },
-//   {
-//     path: '/swiper',
-//     label: 'Swiper',
-//     exact: true,
-//     component: asyncComponent(() =>
-//       import('./views/SwiperView' /* webpackChunkName: "swiper-view" */),
-//     ),
-//   },
-//   {
-//     path: '/tasker',
-//     label: 'Tasker',
-//     exact: true,
-//     component: asyncComponent(() =>
-//       import('./views/TaskerView' /* webpackChunkName: "tasker-view" */),
-//     ),
-//   },
-//   {
-//     path: '/cards',
-//     label: 'Cards',
-//     exact: true,
-//     component: asyncComponent(() =>
-//       import('./views/CardsView' /* webpackChunkName: "cards-view" */),
-//     ),
-//   },
-// ];

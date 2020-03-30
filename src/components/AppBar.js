@@ -1,43 +1,27 @@
 import React from 'react';
-import { CSSTransition } from 'react-transition-group';
-import Logo from './Logo';
+import { connect } from 'react-redux';
 import Navigation from './Navigation';
-import './AppBar.css';
+import UserMenu from './UserMenu';
+import { authSelectors } from '../redux/auth';
 
-const AppBar = () => (
-  <CSSTransition
-    in={true}
-    appear={true}
-    timeout={500}
-    classNames="Appbar-slideIn"
-    unmountOnExit
-  >
-    {stage => {
-      return (
-        <header className="AppBar">
-          <nav className="AppBar-container">
-            <CSSTransition
-              in={stage === 'entered'}
-              timeout={500}
-              classNames="AppBar-logo"
-              unmountOnExit
-            >
-              <Logo />
-            </CSSTransition>
+const styles = {
+  header: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderBottom: '1px solid #2A363B',
+  },
+};
 
-            <CSSTransition
-              in={stage === 'entered'}
-              timeout={250}
-              classNames="AppBar-nav"
-              unmountOnExit
-            >
-              <Navigation />
-            </CSSTransition>
-          </nav>
-        </header>
-      );
-    }}
-  </CSSTransition>
+const AppBar = ({ isAuthenticated }) => (
+  <header style={styles.header}>
+    <Navigation />
+    {isAuthenticated && <UserMenu />}
+  </header>
 );
 
-export default AppBar;
+const mapStateToProps = state => ({
+  isAuthenticated: authSelectors.isAuthenticated(state),
+});
+
+export default connect(mapStateToProps)(AppBar);

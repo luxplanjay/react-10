@@ -1,6 +1,11 @@
 import React from 'react';
 
-const TaskListItem = ({ text, completed, onRemove, onToggleCompleted }) => {
+const TaskListItem = ({
+  description,
+  completed,
+  onRemove,
+  onToggleCompleted,
+}) => {
   const clx = ['TaskList-item'];
 
   if (completed) {
@@ -9,7 +14,7 @@ const TaskListItem = ({ text, completed, onRemove, onToggleCompleted }) => {
 
   return (
     <li className={clx.join(' ')}>
-      <p className="TaskList-text">{text}</p>
+      <p className="TaskList-text">{description}</p>
 
       <label>
         <input

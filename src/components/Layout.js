@@ -1,11 +1,20 @@
 import React from 'react';
 import AppBar from './AppBar';
-import './Layout.css';
+
+const styles = {
+  container: {
+    width: '80vw',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '0 24px',
+  },
+};
 
 const Layout = ({ children }) => (
-  <>
+  <div style={styles.container}>
     <AppBar />
-    <div className="Layout">{children}</div>
-  </>
+    {children}
+  </div>
 );
+
 export default Layout;

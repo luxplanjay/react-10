@@ -10,7 +10,7 @@ const getVisibleTasks = createSelector(
   [getTasks, getFilter],
   (tasks, filter) => {
     return tasks.filter(task =>
-      task.text.toLowerCase().includes(filter.toLowerCase()),
+      task.description.toLowerCase().includes(filter.toLowerCase()),
     );
   },
 );

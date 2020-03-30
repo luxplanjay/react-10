@@ -1,18 +1,36 @@
-import React, { Suspense } from 'react';
-import { Switch, Route } from 'react-router-dom';
+/*
+ * TODO: рефреш пользователя на didMount c getCurrentUser*
+ */
+
+import React, { Component, Suspense } from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Layout from './Layout';
 import routes from '../routes';
+import { authOperations } from '../redux/auth';
 
-const App = () => (
-  <Layout>
-    <Suspense fallback={<h1>Loading...</h1>}>
-      <Switch>
-        {routes.map(route => (
-          <Route key={route.path} {...route} />
-        ))}
-      </Switch>
-    </Suspense>
-  </Layout>
-);
+class App extends Component {
+  componentDidMount() {
+    this.props.onGetCurrentUser();
+  }
 
-export default App;
+  render() {
+    return (
+      <BrowserRouter>
+        <Layout>
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Switch>
+              {routes.map(route => (
+                <Route key={route.path} {...route} />
+              ))}
+            </Switch>
+          </Suspense>
+        </Layout>
+      </BrowserRouter>
+    );
+  }
+}
+
+export default connect(null, {
+  onGetCurrentUser: authOperations.getCurrentUser,
+})(App);
