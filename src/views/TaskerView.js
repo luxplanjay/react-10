@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TaskEditor from '../components/TaskEditor';
-import Filter from '../components/Filter';
+// import Filter from '../components/Filter';
 import TaskList from '../components/TaskList';
 import tasksOperations from '../redux/tasks/tasksOperations';
 import tasksSelectors from '../redux/tasks/tasksSelectors';
