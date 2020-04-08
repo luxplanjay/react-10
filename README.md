@@ -23,7 +23,7 @@
 ## Хуки
 
 - [Занятие](https://youtu.be/SvCn5S0kuBE)
-- [Доки reux](https://react-redux.js.org/api/hooks)
+- [Доки redux](https://react-redux.js.org/api/hooks)
 - [Доки react-router](https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/hooks.md)
 - [Hook form](https://react-hook-form.com/)
 - [React use](https://github.com/streamich/react-use)
